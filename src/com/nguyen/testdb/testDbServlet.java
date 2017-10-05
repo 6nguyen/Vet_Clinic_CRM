@@ -27,6 +27,7 @@ public class testDbServlet extends HttpServlet {
 			String user = "nguyen";
 			String password = "password";
 			
+			// veterinary_clinic is name of DB
 			String jdbcURL = "jdbc:mysql://localhost:3306/veterinary_clinic?useSSL=false";
 			String driver = "com.mysql.jdbc.Driver";
 		
