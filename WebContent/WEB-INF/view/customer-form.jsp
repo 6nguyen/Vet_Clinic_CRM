@@ -19,6 +19,11 @@
 			<h3>Add Customer</h3>
 			<form:form action="saveCustomer" modelAttribute="customer" method="POST">
 				
+				<!-- Need to associate form data with customer id. Otherwise, it will create a new user -->
+				<!-- When form is loaded, calls customer.getId() -->
+				<!-- When form is submitted, calls customer.setId() -->
+				<form:hidden path="id" />
+				
 				<table>
 					<tbody>
 						<tr>

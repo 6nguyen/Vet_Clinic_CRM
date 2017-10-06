@@ -26,7 +26,7 @@ public class CustomerDAOImplementation implements CustomerDAO{
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		// create a query
-		Query<Customer> theQuery = currentSession.createQuery("FROM Customer", Customer.class);
+		Query<Customer> theQuery = currentSession.createQuery("FROM Customer ORDER BY lastName", Customer.class);
 		
 		// execute query and get result list
 		List<Customer> customers = theQuery.getResultList();
@@ -41,8 +41,22 @@ public class CustomerDAOImplementation implements CustomerDAO{
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		// save the customer to db
-		currentSession.save(theCustomer);
+		// save the customer to db with Hibernate's saveOrUpdate()
+		// Hibernate looks at customer's Primary Key, if null it creates creates a new user with insert()
+		// if Primary Key != null, calls update()
+		currentSession.saveOrUpdate(theCustomer);
+	}
+
+	@Override
+	public Customer getCustomer(int theId) {
+		
+		// get current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		// now retrieve object from the db using theId
+		Customer theCustomer = currentSession.get(Customer.class, theId);
+		
+		return theCustomer;
 	}
 
 }
