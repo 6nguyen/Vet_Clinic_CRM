@@ -11,7 +11,7 @@
 <body>
 	<div id="wrapper">
 		<div id="header">
-			<h2>CRM - Customer Relationship Manager</h2>		
+			<h2>Veterinary Clinic - CRM</h2>		
 		</div>
 		
 		<div id="container">
@@ -30,15 +30,25 @@
 					
 					<c:forEach var="tempCustomer" items="${customers}">
 					
-						<!-- make an "Update" link for each customer id. updateLink used as an href later -->
+						<!-- make an "Update" link for each customer id. updateLink used as href in table -->
 						<c:url var="updateLink" value="/customer/updateCustomer" >
 							<c:param name="customerId" value="${tempCustomer.id}" />
 						</c:url>
+						
+						<!-- make a "Delete" link for each customer id.  deleteLink used as href in table -->
+						<c:url var="deleteLinnk" value="/customer/delete">
+							<c:param name="customerId" value="${tempCustomer.id}" />
+						</c:url>
+						
 						<tr>
 							<td>${tempCustomer.firstName}</td>
 							<td>${tempCustomer.lastName}</td>
 							<td>${tempCustomer.email}</td>
-							<td><a href="${updateLink}">Edit</a></td>
+							<td>
+								<a href="${updateLink}">Edit</a>
+								|
+								<a href="${deleteLink}">Delete</a>
+							</td>
 						</tr>
 						
 					</c:forEach>
