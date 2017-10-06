@@ -37,10 +37,6 @@ public class CustomerController {
 		// add customers to the model, using attribute name customers
 		myModel.addAttribute("customers", customerList);
 		
-		// get registeredPets from DAO
-		List<RegisteredPet> petList = registeredPetService.getPets();
-		
-		myModel.addAttribute("registeredPets", petList);
 		
 		return "list-customers";
 	}
