@@ -36,7 +36,7 @@
 						</c:url>
 						
 						<!-- make a "Delete" link for each customer id.  deleteLink used as href in table -->
-						<c:url var="deleteLinnk" value="/customer/delete">
+						<c:url var="deleteLink" value="/customer/deleteCustomer">
 							<c:param name="customerId" value="${tempCustomer.id}" />
 						</c:url>
 						
@@ -47,7 +47,10 @@
 							<td>
 								<a href="${updateLink}">Edit</a>
 								|
-								<a href="${deleteLink}">Delete</a>
+								<!-- add Javascript: onClick to prompt user.  return false if user clicks cancel -->
+								<a href="${deleteLink}" 
+								onClick="if (!(confirm('Warning: Deleting this customer will PERMANENTLY REMOVE their record.\nAre you sure you wish to proceed?'))) return false"
+								>Delete</a>
 							</td>
 						</tr>
 						
