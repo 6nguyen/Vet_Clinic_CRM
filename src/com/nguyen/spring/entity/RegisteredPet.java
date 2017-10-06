@@ -34,9 +34,9 @@ public class RegisteredPet {
 	@Column(name="name")
 	private String name;
 	
-	// Add mapping in RegisteredPet to make the relationship BIdirectional
-	@OneToOne(mappedBy="registeredPet", cascade=CascadeType.ALL)
-	private Customer customer;
+//	// Add mapping in RegisteredPet to make the relationship BIdirectional
+//	@OneToOne(mappedBy="registeredPet", cascade=CascadeType.ALL)
+//	private Customer customer;
 	
 	// CONSTRUCTORS:
 	public RegisteredPet(){
@@ -83,19 +83,19 @@ public class RegisteredPet {
 	}
 	
 
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
-	@Override
-	public String toString() {
-		return "RegisteredPet [id=" + id + ", species=" + species + ", breed=" + breed + ", name=" + name
-				+ ", customer=" + customer + "]";
-	}
+//	public Customer getCustomer() {
+//		return customer;
+//	}
+//
+//	public void setCustomer(Customer customer) {
+//		this.customer = customer;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "RegisteredPet [id=" + id + ", species=" + species + ", breed=" + breed + ", name=" + name
+//				+ ", customer=" + customer + "]";
+//	}
 	
 	
 }

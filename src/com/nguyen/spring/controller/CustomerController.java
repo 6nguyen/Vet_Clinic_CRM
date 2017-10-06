@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nguyen.spring.dao.CustomerDAO;
 import com.nguyen.spring.entity.Customer;
+import com.nguyen.spring.entity.RegisteredPet;
 import com.nguyen.spring.service.CustomerService;
+import com.nguyen.spring.service.RegisteredPetService;
 
 @Controller
 @RequestMapping("/customer")
@@ -22,6 +24,9 @@ public class CustomerController {
 	// inject CustomerService
 	@Autowired
 	private CustomerService customerService;
+	// inject RegisteredPetService
+	@Autowired
+	private RegisteredPetService registeredPetService;
 	
 	@GetMapping("/list")
 	public String listCustomers(Model myModel){
@@ -31,6 +36,11 @@ public class CustomerController {
 		
 		// add customers to the model, using attribute name customers
 		myModel.addAttribute("customers", customerList);
+		
+		// get registeredPets from DAO
+		List<RegisteredPet> petList = registeredPetService.getPets();
+		
+		myModel.addAttribute("registeredPets", petList);
 		
 		return "list-customers";
 	}
@@ -79,4 +89,17 @@ public class CustomerController {
 		return "redirect:/customer/list";
 	}
 	
+	
+	
+	// RegisteredPet mapping
+	@GetMapping("/list/pets")
+	public String listPets(Model myModel){
+		
+		// get registeredPets from DAO
+		List<RegisteredPet> petList = registeredPetService.getPets();
+		
+		myModel.addAttribute("registeredPets", petList);
+		
+		return "list-pets";
+	}
 }
