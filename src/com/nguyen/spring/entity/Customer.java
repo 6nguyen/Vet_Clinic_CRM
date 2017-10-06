@@ -1,10 +1,13 @@
 package com.nguyen.spring.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +25,11 @@ public class Customer {
 	private String lastName;
 	@Column(name="email")
 	private String email;
+	
+	// Map the customer table to the registered_pet table, using registered_pet_id as the Foreign Key
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="registered_pet_id")
+	private RegisteredPet registeredPet;
 	
 	// Default Constructor
 	public Customer() {
@@ -68,10 +76,10 @@ public class Customer {
 		this.email = email;
 	}
 
-	// Source -> Generate toString()
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", registeredPet=" + registeredPet + "]";
 	}
 	
 	

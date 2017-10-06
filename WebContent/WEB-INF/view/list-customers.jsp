@@ -25,6 +25,7 @@
 						<th>First Name</th>
 						<th>Last Name</th>
 						<th>Email</th>
+						<th>Registered Pet</th>
 						<th>Action</th>
 					</tr>
 					
@@ -44,6 +45,7 @@
 							<td>${tempCustomer.firstName}</td>
 							<td>${tempCustomer.lastName}</td>
 							<td>${tempCustomer.email}</td>
+							<td>Some Pet</td>
 							<td>
 								<a href="${updateLink}">Edit</a>
 								|
