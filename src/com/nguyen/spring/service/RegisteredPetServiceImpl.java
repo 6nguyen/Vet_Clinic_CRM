@@ -3,11 +3,13 @@ package com.nguyen.spring.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.nguyen.spring.dao.RegisteredPetDAO;
 import com.nguyen.spring.entity.RegisteredPet;
 
+@Service
 public class RegisteredPetServiceImpl implements RegisteredPetService {
 
 	@Autowired

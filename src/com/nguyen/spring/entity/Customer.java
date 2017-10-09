@@ -27,9 +27,9 @@ public class Customer {
 	private String email;
 	
 	// Map the customer table to the registered_pet table, using registered_pet_id as the Foreign Key
-//	@OneToOne(cascade=CascadeType.ALL)
-//	@JoinColumn(name="registered_pet_id")
-//	private RegisteredPet registeredPet;
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="registered_pet_id")
+	private RegisteredPet registeredPet;
 	
 	// Default Constructor
 	public Customer() {

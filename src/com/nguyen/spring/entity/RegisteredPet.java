@@ -35,8 +35,8 @@ public class RegisteredPet {
 	private String name;
 	
 //	// Add mapping in RegisteredPet to make the relationship BIdirectional
-//	@OneToOne(mappedBy="registeredPet", cascade=CascadeType.ALL)
-//	private Customer customer;
+	@OneToOne(mappedBy="registeredPet", cascade=CascadeType.ALL)
+	private Customer customer;
 	
 	// CONSTRUCTORS:
 	public RegisteredPet(){
